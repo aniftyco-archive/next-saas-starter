@@ -2,7 +2,11 @@ module.exports = {
   roots: ['<rootDir>'],
   moduleFileExtensions: ['js', 'ts', 'tsx', 'json'],
   moduleDirectories: ['node_modules', '<rootDir>/src'],
-  collectCoverageFrom: ['src/**/*.{ts,tsx}', '!**/*.d.ts'],
+  collectCoverageFrom: [
+    'src/**/*.{ts,tsx}',
+    '!src/pages/_document.tsx',
+    '!**/*.d.ts',
+  ],
   setupFilesAfterEnv: ['@testing-library/jest-dom/extend-expect'],
   testPathIgnorePatterns: ['/node_modules/', '/.next/'],
   transform: {
@@ -15,6 +19,6 @@ module.exports = {
   },
   transformIgnorePatterns: ['/node_modules/'],
   moduleNameMapper: {
-    '^\\.css$': 'identity-obj-proxy',
+    '\\.css$': 'identity-obj-proxy',
   },
 };
