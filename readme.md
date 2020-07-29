@@ -1,5 +1,7 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`Groundwork`](https://github.com/aniftyco/groundwork).
 
+You can use this app by running `npx groundwork aniftyco/next-starter my-app`.
+
 ## Getting Started
 
 First, run the development server:
