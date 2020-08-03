@@ -1,5 +1,5 @@
 import { FunctionComponent } from 'react';
-import 'tailwindcss/dist/tailwind.css';
+import 'tailwindcss/tailwind.css';
 
 type Props = {
   Component: FunctionComponent;
