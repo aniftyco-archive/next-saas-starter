@@ -1316,10 +1316,10 @@
   resolved "https://registry.yarnpkg.com/@tailwindcss/typography/-/typography-0.2.0.tgz#b597c83502e3c3c6641a8aaabda223cd494ab349"
   integrity sha512-aPgMH+CjQiScLZculoDNOQUrrK2ktkbl3D6uCLYp1jgYRlNDrMONu9nMu8LfwAeetYNpVNeIGx7WzHSu0kvECg==
 
-"@tailwindcss/ui@^0.4.0":
-  version "0.4.0"
-  resolved "https://registry.yarnpkg.com/@tailwindcss/ui/-/ui-0.4.0.tgz#57ce588b6a9577ab9ffeb960cc9a15da65ebd6bc"
-  integrity sha512-aUDxTamhTx3EKsjj1jo+p8aIh8akHt1uUQ4ezB2b/Mms3AkDpK4GwtAkeFt4SXcRqkXAoVPwemrhfIebDXVjSw==
+"@tailwindcss/ui@^0.5.0":
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/@tailwindcss/ui/-/ui-0.5.0.tgz#c3b274222a57484757e664bc71c4f5288461c9ad"
+  integrity sha512-UbKe9ti0uMXN2lmgaFgNJC/DY4s2izLaowhIn2A4AgmplC2+XzcYJ9vHLLNNXNBthDq9X+js92tpxey6dBjgfw==
   dependencies:
     "@tailwindcss/custom-forms" "^0.2.1"
     "@tailwindcss/typography" "^0.2.0"
@@ -7814,10 +7814,10 @@ table@^5.2.3:
     slice-ansi "^2.1.0"
     string-width "^3.0.0"
 
-tailwindcss@^1.6.0:
-  version "1.6.0"
-  resolved "https://registry.yarnpkg.com/tailwindcss/-/tailwindcss-1.6.0.tgz#cdad8cdd225129ad41bff6aa607aa39ad6524593"
-  integrity sha512-UZEex5ebsQlCTIBjI0oZITL67HBjOrzMgA4ceLOf8mrBGquLSn7LsO92do1nBSBZBV2Qqpivz9QUwT3zMSQkMA==
+tailwindcss@^1.6.2:
+  version "1.6.2"
+  resolved "https://registry.yarnpkg.com/tailwindcss/-/tailwindcss-1.6.2.tgz#352da9e1b0d9154c95ce12483daa1c2fa1f1eea8"
+  integrity sha512-Cpa0kElG8Sg5sJSvTYi2frmIQZq0w37RLNNrYyy/W6HIWKspqSdTfb9tIN6X1gm4KV5a+TE/n7EKmn5Q9C7EUQ==
   dependencies:
     "@fullhuman/postcss-purgecss" "^2.1.2"
     autoprefixer "^9.4.5"
