@@ -15,6 +15,9 @@
       "next/babel"
     ]
   },
+  "prettier": {
+    "singleQuote": true
+  },
   "dependencies": {
     "next": "^9.5.1",
     "react": "^16.13.1",
