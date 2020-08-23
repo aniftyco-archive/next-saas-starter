@@ -2,6 +2,17 @@
   "name": "next-starter",
   "version": "0.1.0",
   "private": true,
+  "author": {
+    "name": "Nifty Development, LLC",
+    "email": "support@aniftyco.com",
+    "url": "https://aniftyco.com"
+  },
+  "contributors": [
+    {
+      "name": "Josh Manders",
+      "url": "https://twitter.com/joshmanders"
+    }
+  ],
   "scripts": {
     "start": "next dev --port 3000",
     "build": "next build",
