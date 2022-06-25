@@ -13,8 +13,12 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "baseUrl": "./src/"
+    "incremental": true,
+    "baseUrl": "./",
+    "paths": {
+      "@app/*": ["./*"]
+    }
   },
   "exclude": ["node_modules", ".next"],
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"]
+  "include": ["next-env.d.ts", "saas-env.d.ts", "**/*.ts", "**/*.tsx"]
 }

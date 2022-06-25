@@ -1,6 +1,6 @@
 import { Fragment } from 'react';
 import Head from 'next/head';
-import { HelloWorld } from 'components/HelloWorld';
+import { HelloWorld } from '@app/components/HelloWorld';
 
 const IndexPage = () => (
   <Fragment>

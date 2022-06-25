@@ -1,8 +1,22 @@
+const plugin = require('tailwindcss/plugin');
+
+/** @type {import('tailwindcss').Config} */
 module.exports = {
-  purge: ['./src/**/*.{ts,tsx}'],
-  theme: {
-    extend: {},
-  },
-  variants: {},
-  plugins: [require('@tailwindcss/ui')],
+  darkMode: 'class',
+  content: ['./**/*.{ts,tsx}'],
+  plugins: [
+    require('@tailwindcss/forms'),
+    plugin(({ addComponents }) => {
+      const components = {
+        '#__next': {
+          display: 'flex',
+          minHeight: '100vh',
+          'flex-direction': 'column',
+          '-webkit-font-smoothing': 'antialiased',
+          '-moz-osx-font-smoothing': 'grayscale',
+        },
+      };
+      addComponents(components);
+    }),
+  ],
 };

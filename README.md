@@ -1,13 +1,13 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`Groundwork`](https://github.com/aniftyco/groundwork).
+This is a [Next.js](https://nextjs.org/) SaaS project bootstrapped with [`Groundwork`](https://github.com/aniftyco/groundwork).
 
-You can use this app by running `npx groundwork aniftyco/next-starter my-app`.
+You can use this app by running `npx groundwork aniftyco/next-saas-starter my-app`.
 
 ## Getting Started
 
 First, run the development server:
 
 ```bash
-yarn start
+npm start
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
@@ -22,7 +22,3 @@ To learn more about Next.js, take a look at the following resources:
 - [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Primcloud
-
-Coming Soon!

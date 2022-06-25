@@ -1,7 +1,11 @@
 {
-  "name": "next-starter",
-  "version": "0.1.0",
+  "name": "next-saas-starter",
+  "version": "0.0.0",
   "private": true,
+  "scripts": {
+    "start": "next dev --port 3000",
+    "build": "next build"
+  },
   "author": {
     "name": "Nifty Development, LLC",
     "email": "support@aniftyco.com",
@@ -13,84 +17,38 @@
       "url": "https://twitter.com/joshmanders"
     }
   ],
-  "scripts": {
-    "start": "next dev --port 3000",
-    "build": "next build",
-    "test": "jest"
-  },
   "eslintConfig": {
-    "extends": "nifty/react"
-  },
-  "babel": {
-    "presets": [
-      "next/babel"
+    "extends": "nifty/react",
+    "ignorePatterns": [
+      "*.config.js"
     ]
   },
   "prettier": {
-    "singleQuote": true
-  },
-  "jest": {
-    "roots": [
-      "<rootDir>"
-    ],
-    "moduleFileExtensions": [
-      "js",
-      "ts",
-      "tsx",
-      "json"
-    ],
-    "moduleDirectories": [
-      "node_modules",
-      "<rootDir>/src"
-    ],
-    "collectCoverageFrom": [
-      "src/**/*.{ts,tsx}",
-      "!src/pages/_document.tsx",
-      "!**/*.d.ts"
-    ],
-    "setupFilesAfterEnv": [
-      "@testing-library/jest-dom/extend-expect"
-    ],
-    "testPathIgnorePatterns": [
-      "/node_modules/",
-      "/.next/"
-    ],
-    "transform": {
-      "^.+\\.tsx?$": "babel-jest"
-    },
-    "globals": {
-      "ts-jest": {
-        "tsConfig": "./tests/tsconfig.json"
+    "printWidth": 120,
+    "singleQuote": true,
+    "overrides": [
+      {
+        "files": "*.yaml",
+        "options": {
+          "singleQuote": false
+        }
       }
-    },
-    "transformIgnorePatterns": [
-      "/node_modules/"
-    ],
-    "moduleNameMapper": {
-      "\\.css$": "identity-obj-proxy"
-    }
+    ]
   },
   "dependencies": {
-    "next": "^9.5.1",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "next": "^12.1.6",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@tailwindcss/ui": "^0.5.0",
-    "@testing-library/jest-dom": "^5.11.2",
-    "@testing-library/react": "^10.4.7",
-    "@types/jest": "^26.0.7",
-    "@types/node": "^14.0.27",
-    "@types/react": "^16.9.43",
+    "@tailwindcss/forms": "^0.5.2",
+    "@types/node": "^16.11.41",
+    "@types/react": "^18.0.14",
     "autoprefixer": "^9.8.5",
-    "babel-jest": "^26.1.0",
-    "eslint": "^7.5.0",
-    "eslint-config-nifty": "^3.0.0-rc.8",
-    "identity-obj-proxy": "^3.0.0",
-    "jest": "^26.1.0",
-    "prettier": "^2.0.5",
-    "tailwindcss": "^1.6.2",
-    "ts-jest": "^26.1.4",
-    "typescript": "^3.9.7"
+    "eslint": "^8.18.0",
+    "eslint-config-nifty": "^3.3.1",
+    "prettier": "^2.7.1",
+    "tailwindcss": "^3.1.4",
+    "typescript": "^4.7.4"
   }
 }

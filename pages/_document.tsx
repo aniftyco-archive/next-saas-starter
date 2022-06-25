@@ -1,10 +1,4 @@
-import NextDocument, {
-  Html,
-  Head,
-  Main,
-  NextScript,
-  DocumentContext,
-} from 'next/document';
+import NextDocument, { DocumentContext, Head, Html, Main, NextScript } from 'next/document';
 
 class Document extends NextDocument {
   static async getInitialProps(ctx: DocumentContext) {
@@ -15,7 +9,7 @@ class Document extends NextDocument {
     return (
       <Html>
         <Head />
-        <body className="antialiased text-gray-900 min-h-screen">
+        <body className="min-h-screen antialiased text-gray-900">
           <Main />
           <NextScript />
         </body>
