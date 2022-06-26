@@ -4,7 +4,7 @@ import * as log from 'next/dist/build/output/log';
 import Context from './context';
 import { APIError, InternalServerError, MethodNotAllowedError } from './errors';
 
-export type Primatives = string | number | boolean;
+export type Primatives = string | number | boolean | Date;
 export type HandlerResponse = Primatives | Record<string, Primatives> | Primatives[] | Record<string, Primatives>[];
 
 export type Handler<Request = NextApiRequest, Response = NextApiResponse<HandlerResponse>> = (
