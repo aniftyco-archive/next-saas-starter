@@ -4,6 +4,12 @@ const plugin = require('tailwindcss/plugin');
 module.exports = {
   darkMode: 'class',
   content: ['./**/*.{ts,tsx}'],
+  theme: {
+    extend: {},
+  },
+  variants: {
+    extend: {},
+  },
   plugins: [
     require('@tailwindcss/forms'),
     plugin(({ addComponents }) => {

@@ -5,7 +5,7 @@ import { HelloWorld } from '@app/components/HelloWorld';
 const IndexPage = () => (
   <Fragment>
     <Head>
-      <title>Next Tailwind CSS</title>
+      <title>Next SaaS App</title>
     </Head>
     <HelloWorld />
   </Fragment>
