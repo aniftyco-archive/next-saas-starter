@@ -39,6 +39,6 @@ const proxyHandler = {
   },
 };
 
-export const handler = new Proxy(() => {}, proxyHandler) as NextConnect<Request, Response>;
+export const handler = new Proxy({}, proxyHandler) as NextConnect<Request, Response>;
 
 export default handler;
