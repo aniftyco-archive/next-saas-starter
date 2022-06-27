@@ -1,6 +1,7 @@
 import aws, { SES } from 'aws-sdk';
 import { readFile } from 'fs/promises';
 import { compile } from 'handlebars';
+import { convert } from 'html-to-text';
 import nodemailer, { SendMailOptions } from 'nodemailer';
 import { resolve } from 'path';
 
@@ -44,11 +45,12 @@ export const send = async <Values>({ template, values, from, ...envelope }: Send
 
   try {
     const tpl = await readFile(resolve(process.cwd(), template), 'utf-8');
+    const html = compile(tpl)(values);
     const result = await nodemailer.createTransport(transport).sendMail({
       ...envelope,
       from: process.env.MAIL_FROM || from,
-      html: compile(tpl)(values),
-      text: undefined,
+      html,
+      text: convert(html),
     } as SendMailOptions);
 
     return result;
