@@ -41,6 +41,7 @@
   "dependencies": {
     "@prisma/client": "^3.15.2",
     "bcrypt": "^5.0.1",
+    "lodash": "^4.17.21",
     "next": "^12.1.6",
     "next-connect": "^0.12.2",
     "next-seo": "^5.4.0",
@@ -53,6 +54,7 @@
     "@heroicons/react": "^1.0.6",
     "@tailwindcss/forms": "^0.5.2",
     "@types/bcrypt": "^5.0.0",
+    "@types/lodash": "^4.14.182",
     "@types/node": "^16.11.41",
     "@types/react": "^18.0.14",
     "@types/react-dom": "^18.0.5",
