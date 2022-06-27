@@ -5,7 +5,7 @@ const Document: FunctionComponent = () => {
   return (
     <Html className="h-full">
       <Head />
-      <body className="min-h-screen antialiased">
+      <body className="min-h-screen antialiased bg-white">
         <Main />
         <NextScript />
       </body>
