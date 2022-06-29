@@ -4,16 +4,17 @@ import * as log from 'next/dist/build/output/log';
 import Context from './context';
 import { APIError, InternalServerError, MethodNotAllowedError } from './errors';
 
+export type { Request, Response } from './context';
 export type Primatives = string | number | boolean | Date;
 export type HandlerResponse = Primatives | Record<string, Primatives> | Primatives[] | Record<string, Primatives>[];
 
-export type Handler<Request = NextApiRequest, Response = NextApiResponse<HandlerResponse>> = (
-  context: Context<Request, Response>,
+export type Handler<Params, Body, Cookies> = (
+  context: Context<Params, Body, Cookies, keyof Registry> & Registry,
   next: NextHandler
 ) => HandlerResponse | Promise<HandlerResponse>;
 
-export type Middleware<Request = NextApiRequest, Response = NextApiResponse<HandlerResponse>> = (
-  context: Context<Request, Response>,
+export type Middleware<Params, Body, Cookies> = (
+  context: Context<Params, Body, Cookies, keyof Registry> & Registry,
   next: NextHandler
 ) => void | Promise<void>;
 
@@ -31,16 +32,20 @@ const onError = (err: APIError | Error, req: NextApiRequest, res: NextApiRespons
   return new InternalServerError().render(req, res);
 };
 
-const handle = (context: Context, action: Function, handler: Handler) => {
+const handle = <Params, Body, Cookies>(
+  context: Context<Params, Body, Cookies, keyof Registry> & Registry,
+  action: Function,
+  handler: Handler<Params, Body, Cookies>
+) => {
   return action((req: NextApiRequest, res: NextApiResponse<HandlerResponse>, next: NextHandler) => {
     return Promise.resolve(handler(context.attach({ req, res }), next)).then(res.send.bind(res));
   });
 };
 
-const middleware = (
-  context: Context,
+const middleware = <Params, Body, Cookies>(
+  context: Context<Params, Body, Cookies, keyof Registry> & Registry,
   use: Function,
-  ...wares: Middleware<NextApiRequest, NextApiResponse<HandlerResponse>>[]
+  ...wares: Middleware<Params, Body, Cookies>[]
 ) => {
   return use(
     '/',
@@ -68,20 +73,23 @@ const proxyHandler: ProxyHandler<{}> = {
   },
 };
 
-interface APIHandler<Request = NextApiRequest, Response = NextApiResponse<HandlerResponse>> {
-  (context: Context<Request, Response>): any | Promise<any>;
-  all<ReqExt = {}, ResExt = {}>(handler: Handler<Request & ReqExt, Response & ResExt>): this;
-  get<ReqExt = {}, ResExt = {}>(handler: Handler<Request & ReqExt, Response & ResExt>): this;
-  head<ReqExt = {}, ResExt = {}>(handler: Handler<Request & ReqExt, Response & ResExt>): this;
-  post<ReqExt = {}, ResExt = {}>(handler: Handler<Request & ReqExt, Response & ResExt>): this;
-  put<ReqExt = {}, ResExt = {}>(handler: Handler<Request & ReqExt, Response & ResExt>): this;
-  delete<ReqExt = {}, ResExt = {}>(handler: Handler<Request & ReqExt, Response & ResExt>): this;
-  options<ReqExt = {}, ResExt = {}>(handler: Handler<Request & ReqExt, Response & ResExt>): this;
-  trace<ReqExt = {}, ResExt = {}>(handler: Handler<Request & ReqExt, Response & ResExt>): this;
-  patch<ReqExt = {}, ResExt = {}>(handler: Handler<Request & ReqExt, Response & ResExt>): this;
-  use<ReqExt = {}, ResExt = {}>(...middleware: Middleware<Request & ReqExt, Response & ResExt>[]): this;
+interface Params extends Record<string, any> {}
+interface Body extends Record<string, any> {}
+interface Cookies extends Record<string, any> {}
+
+interface APIHandler {
+  all<P = Params, B = Body, C = Cookies>(handler: Handler<P, B, C>): this;
+  get<P = Params, B = Body, C = Cookies>(handler: Handler<P, B, C>): this;
+  head<P = Params, B = Body, C = Cookies>(handler: Handler<P, B, C>): this;
+  post<B = Body, P = Params, C = Cookies>(handler: Handler<P, B, C>): this;
+  put<B = Body, P = Params, C = Cookies>(handler: Handler<P, B, C>): this;
+  delete<P = Params, B = Body, C = Cookies>(handler: Handler<P, B, C>): this;
+  options<P = Params, B = Body, C = Cookies>(handler: Handler<P, B, C>): this;
+  trace<P = Params, B = Body, C = Cookies>(handler: Handler<P, B, C>): this;
+  patch<B = Body, P = Params, C = Cookies>(handler: Handler<P, B, C>): this;
+  use<P = Params, B = Body, C = Cookies>(...middleware: Middleware<P, B, C>[]): this;
 }
 
-export const handler = new Proxy({}, proxyHandler) as APIHandler<NextApiRequest, NextApiResponse<HandlerResponse>>;
+export const handler = new Proxy({}, proxyHandler) as APIHandler;
 
 export default handler;
