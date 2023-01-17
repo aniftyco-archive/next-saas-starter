@@ -6,7 +6,9 @@
     "start": "next start --port $PORT",
     "dev": "next dev --port 9001",
     "prebuild": "prisma generate",
-    "build": "next build"
+    "build": "next build",
+    "db:migrate": "npx prisma db push && npm run prebuild",
+    "db:seed": "npx prisma db seed"
   },
   "author": {
     "name": "Nifty Development, LLC",
