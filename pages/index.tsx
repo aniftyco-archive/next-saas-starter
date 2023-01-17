@@ -1,12 +1,11 @@
 import { Fragment } from 'react';
-import Head from 'next/head';
+import { NextPage } from 'next';
+import { NextSeo as Meta } from 'next-seo';
 import { HelloWorld } from '@app/components/HelloWorld';
 
-const IndexPage = () => (
+const IndexPage: NextPage = () => (
   <Fragment>
-    <Head>
-      <title>Next SaaS App</title>
-    </Head>
+    <Meta title="Next SaaS App" />
     <HelloWorld />
   </Fragment>
 );

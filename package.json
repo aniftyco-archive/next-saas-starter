@@ -3,7 +3,9 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "next dev --port 3000",
+    "start": "next start --port $PORT",
+    "dev": "next dev --port 9001",
+    "prebuild": "prisma generate",
     "build": "next build"
   },
   "author": {
@@ -18,7 +20,8 @@
     }
   ],
   "prisma": {
-    "schema": "./db/schema.prisma"
+    "schema": "./db/schema.prisma",
+    "seed": "ts-node --transpile-only --compiler-options {\"module\":\"CommonJS\"} db/seed.ts"
   },
   "eslintConfig": {
     "extends": "nifty/react",
@@ -39,41 +42,34 @@
     ]
   },
   "dependencies": {
-    "@prisma/client": "^4.0.0",
-    "aws-sdk": "^2.1164.0",
-    "bcrypt": "^5.0.1",
-    "handlebars": "^4.7.7",
-    "html-to-text": "^8.2.0",
-    "lodash": "^4.17.21",
-    "next": "^12.2.0",
-    "next-connect": "^0.12.2",
-    "next-seo": "^5.4.0",
-    "next-themes": "^0.2.0",
-    "nodemailer": "^6.7.5",
+    "@prisma/client": "^4.9.0",
+    "aws-sdk": "^2.1295.0",
+    "bcrypt": "^5.1.0",
+    "next": "^13.1.2",
+    "next-saas": "^0.5.2",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "uuid": "^9.0.0"
   },
   "devDependencies": {
-    "@headlessui/react": "^1.6.5",
-    "@heroicons/react": "^1.0.6",
-    "@tailwindcss/forms": "^0.5.2",
+    "@tailwindcss/forms": "^0.5.3",
     "@types/bcrypt": "^5.0.0",
-    "@types/html-to-text": "^8.1.0",
-    "@types/lodash": "^4.14.182",
-    "@types/node": "^16.11.41",
-    "@types/nodemailer": "^6.4.4",
-    "@types/react": "^18.0.14",
-    "@types/react-dom": "^18.0.5",
-    "autoprefixer": "^10.4.7",
-    "classnames": "^2.3.1",
-    "eslint": "^8.18.0",
+    "@types/node": "^16.18.11",
+    "@types/react": "^18.0.26",
+    "@types/react-dom": "^18.0.10",
+    "@types/uuid": "^9.0.0",
+    "autoprefixer": "^10.4.13",
+    "eslint": "^8.32.0",
     "eslint-config-nifty": "^3.3.1",
     "fathom-client": "^3.5.0",
-    "postcss": "^8.4.14",
-    "prettier": "^2.7.1",
-    "prisma": "^4.0.0",
-    "react-query": "^3.39.1",
-    "tailwindcss": "^3.1.4",
-    "typescript": "^4.7.4"
+    "next-seo": "^5.15.0",
+    "next-themes": "^0.2.1",
+    "postcss": "^8.4.21",
+    "prettier": "^2.8.3",
+    "prisma": "^4.8.1",
+    "react-query": "^3.39.2",
+    "tailwindcss": "^3.2.4",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.9.4"
   }
 }

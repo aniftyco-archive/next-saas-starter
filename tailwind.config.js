@@ -18,8 +18,6 @@ module.exports = {
           display: 'flex',
           minHeight: '100vh',
           'flex-direction': 'column',
-          '-webkit-font-smoothing': 'antialiased',
-          '-moz-osx-font-smoothing': 'grayscale',
         },
       };
       addComponents(components);

@@ -1,22 +1,27 @@
-FROM node:16-alpine
-
+# Base
+FROM node:16-alpine AS base
+RUN npm i -g npm@latest
 WORKDIR /app
-
-ENV PORT 5000
 ENV NEXT_TELEMETRY_DISABLED true
 
-RUN addgroup -g 1001 -S nodejs
-RUN adduser -S app -u 1001
+# Build
+FROM base AS builder
 
-COPY package.json package-lock.json /app/
+COPY . .
 RUN npm ci
-
-
-COPY . /app/
 RUN npm run build
 
-USER app
-ENV NODE_ENV production
-EXPOSE 5000
+# Run
+FROM base as runner
 
-CMD ["npx", "next", "start"]
+ENV PORT 5000
+ENV NODE_ENV production
+ENV PATH $PATH:/app/node_modules/.bin
+ENV NEXT_TELEMETRY_DISABLED true
+
+COPY --from=builder /app/node_modules/ /app/node_modules/
+COPY --from=builder /app/ /app/
+
+EXPOSE 5000
+ENTRYPOINT ["npx"]
+CMD ["next", "start"]

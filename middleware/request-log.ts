@@ -1,5 +1,4 @@
-import * as log from 'next/dist/build/output/log';
-import { Middleware } from '@app/lib/api-handler';
+import { log, Middleware } from 'next-saas';
 
 // Simple example middleware that just outputs
 // the method and url being requested.
