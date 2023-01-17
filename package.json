@@ -7,6 +7,7 @@
     "dev": "next dev --port 9001",
     "prebuild": "prisma generate",
     "build": "next build",
+    "db:explorer": "npx prisma studio",
     "db:migrate": "npx prisma db push && npm run prebuild",
     "db:seed": "npx prisma db seed"
   },
